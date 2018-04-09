@@ -74,7 +74,7 @@ RUN mkdir -p "$CATALINA_HOME" \
  && for url in $TOMCAT_TGZ_URLS; do if wget -O tomcat.tar.gz "$url"; then success=1 && break; else success=0; fi; done \
  && if [ "$success" == 1 ]; then echo "$TOMCAT_SHA1 *tomcat.tar.gz" | sha1sum -c -; fi \
  && for url in $TOMCAT_ASC_URLS; do if wget -O tomcat.tar.gz.asc "$url"; then success=1 && break; else success=0; fi; done \
- && if [ "$success" == 1 ]; then gpg --batch --verify tomcat.tar.gz.asc tomcat.tar.gz; fi \
+ && if [ "$success" == 1 ]; then echo "$url" && ls -la && cat tomcat.tar.gz.asc && gpg --batch --verify tomcat.tar.gz.asc tomcat.tar.gz; fi \
  && tar -xvf tomcat.tar.gz --strip-components=1 \
  && rm bin/*.bat \
  && rm tomcat.tar.gz* \
