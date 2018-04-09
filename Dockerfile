@@ -72,7 +72,7 @@ RUN mkdir -p "$CATALINA_HOME" \
  && for key in $GPG_KEYS; do gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; done \
  && for url in $TOMCAT_TGZ_URLS; do if wget -O tomcat.tar.gz "$url"; then success=1; break; else success=0; fi; done \
  && if [ "$success" == 1 ]; then echo "$TOMCAT_SHA1 *tomcat.tar.gz" | sha1sum -c -; fi \
- && for url in $TOMCAT_ASC_URLS; do if wget -O tomcat.tar.gz.asc "$url"; then; success=1; break; else success=0; fi; done
+ && for url in $TOMCAT_ASC_URLS; do if wget -O tomcat.tar.gz.asc "$url"; then success=1; break; else success=0; fi; done
 # ---------------------------------------------------------------------
     
 RUN chmod go= /bin /sbin /usr/bin /usr/sbin \
