@@ -65,8 +65,8 @@ RUN env | grep "^BEV_" > "$BUILDTIME_ENVIRONMENT" \
 
 # Image-specific RUN commands.
 # ---------------------------------------------------------------------
-RUN mkdir -p "$CATALINA_HOME"
- && cd "$CATALINA_HOME"
+RUN mkdir -p "$CATALINA_HOME" \
+ && cd "$CATALINA_HOME" \
  && apk add --no-cache --virtual .fetch-deps gnupg ca-certificates openssl \
  && export GNUPGHOME="$(mktemp -d)" \
  && for key in $GPG_KEYS; do gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; done \
