@@ -69,7 +69,7 @@ RUN mkdir -p "$CATALINA_HOME" \
  && cd "$CATALINA_HOME" \
  && apk add --no-cache --virtual .fetch-deps gnupg ca-certificates openssl \
  && export GNUPGHOME="$(mktemp -d)" \
- && for key in $GPG_KEYS; do gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; done; \
+ && for key in $GPG_KEYS; do gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; done \
  && echo "hej" \
  && for url in $TOMCAT_TGZ_URLS; do if wget -O tomcat.tar.gz "$url"; then success=1; break; else success=0; fi; done \
  && if [ "$success" == 1 ]; then echo "$TOMCAT_SHA1 *tomcat.tar.gz" | sha1sum -c -; fi \
