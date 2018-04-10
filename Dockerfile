@@ -14,7 +14,7 @@ ENV BUILDTIME_ENVIRONMENT="$BIN_DIR/buildtime_environment" \
 
 # Image-specific buildtime environment variables.
 # ---------------------------------------------------------------------
-ENV JAVA_HOME="/usr/lib/jvm/java-1.8-openjdk/jre" \
+ENV OPENJDK_DIR="/usr/lib/jvm/java-1.8-openjdk" \
     JAVA_VERSION="8u151" \
     JAVA_ALPINE_VERSION="8.151.12-r0"
 # ---------------------------------------------------------------------
@@ -41,8 +41,8 @@ RUN env | grep "^BEV_" > "$BUILDTIME_ENVIRONMENT" \
 # Image-specific RUN commands.
 # ---------------------------------------------------------------------
 RUN apk add --no-cache openjdk8-jre="$JAVA_ALPINE_VERSION" \
- && ln "$JAVA_HOME/bin/"* "$BIN_DIR/" \
- && ln "$JAVA_HOME/jre/bin"* "$BIN_DIR/"
+ && ln "$OPENJDK_DIR/bin/"* "$BIN_DIR/" \
+ && ln "$OPENJDK_DIR/jre/bin/"* "$BIN_DIR/"
 # ---------------------------------------------------------------------
     
 RUN chmod go= /bin /sbin /usr/bin /usr/sbin \
