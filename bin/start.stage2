@@ -21,6 +21,4 @@ then
 # Image-specific code
 # --------------------------------------------
 
-
 fi
-exec /usr/bin/env -i $BIN_DIR/sudo -u $NAME $BIN_DIR/postgres --config_file="$CONFIG_FILE"
