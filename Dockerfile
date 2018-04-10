@@ -41,14 +41,8 @@ RUN env | grep "^BEV_" > "$BUILDTIME_ENVIRONMENT" \
 
 # Image-specific RUN commands.
 # ---------------------------------------------------------------------
-RUN { \
-       echo '#!/bin/sh' \
-       echo 'set -e' \
-       echo 'dirname "$(dirname "$(readlink -f "$(which javac || which java)")")"' \
-    } > /usr/local/bin/docker-java-home \
- && chmod +x /usr/local/bin/docker-java-home \
- && apk add --no-cache openjdk8-jre="$JAVA_ALPINE_VERSION" \
- && [ "$JAVA_HOME" = "$(docker-java-home)" ]
+RUN apk add --no-cache openjdk8-jre="$JAVA_ALPINE_VERSION" \
+ && [ "$JAVA_HOME" = "$(dirname "$(dirname "$(readlink -f "$(which javac || which java)")")")" ]
 # ---------------------------------------------------------------------
     
 RUN chmod go= /bin /sbin /usr/bin /usr/sbin \
