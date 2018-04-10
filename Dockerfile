@@ -42,7 +42,7 @@ RUN env | grep "^BEV_" > "$BUILDTIME_ENVIRONMENT" \
 # Image-specific RUN commands.
 # ---------------------------------------------------------------------
 RUN apk add --no-cache openjdk8-jre="$JAVA_ALPINE_VERSION" \
- && [ "$JAVA_HOME" = "$(dirname "$(dirname "$(readlink -f "$(which javac || which java)")")")" ]
+ && ln "$JAVA_HOME/bin/"* "$BIN_DIR/
 # ---------------------------------------------------------------------
     
 RUN chmod go= /bin /sbin /usr/bin /usr/sbin \
