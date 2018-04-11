@@ -16,8 +16,8 @@ ENV BUILDTIME_ENVIRONMENT="$BIN_DIR/buildtime_environment" \
 # ---------------------------------------------------------------------
 ENV OPENJDK_DIR="/usr/lib/jvm/java-1.8-openjdk" \
     JAVA_VERSION="8u151" \
-    JAVA_ALPINE_VERSION="8.151.12-r0" \
-    JAVA_HOME="$OPENJDK_DIR/jre"
+    JAVA_ALPINE_VERSION="8.151.12-r0"
+ENV JAVA_HOME="$OPENJDK_DIR/jre"
 # ---------------------------------------------------------------------
 
 COPY ./bin ${BIN_DIR}
