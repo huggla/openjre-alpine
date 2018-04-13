@@ -1,7 +1,7 @@
 FROM huggla/alpine
 
 ENV OPENJDK_DIR="/usr/lib/jvm/java-1.8-openjdk" \
-    JAVA_MAJOR 8 \
+    JAVA_MAJOR="8" \
     JAVA_VERSION="8u151" \
     JAVA_ALPINE_VERSION="8.151.12-r0" \
     PATH="$PATH:/usr/lib/jvm/java-1.8-openjdk/jre/bin:/usr/lib/jvm/java-1.8-openjdk/bin"
