@@ -1,4 +1,4 @@
-FROM huggla/alpine
+FROM huggla/alpine:20180417
 
 ENV OPENJDK_DIR="/usr/lib/jvm/java-1.8-openjdk" \
     JAVA_MAJOR="8" \
