@@ -8,5 +8,4 @@ ENV OPENJDK_DIR="/usr/lib/jvm/java-1.8-openjdk" \
 ENV JAVA_HOME="$OPENJDK_DIR/jre"
 
 RUN apk add --no-cache openjdk8-jre="$JAVA_ALPINE_VERSION" \
- && ln "$OPENJDK_DIR/jre/bin/"* "$BIN_DIR/" \
- && rm -rf "$OPENJDK_DIR/bin" "$OPENJDK_DIR/lib"
+ && ln "$OPENJDK_DIR/jre/bin/"* "$BIN_DIR/"
